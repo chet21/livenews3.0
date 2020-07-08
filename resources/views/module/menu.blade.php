@@ -4,7 +4,7 @@
             <a style="color: #7BCEF8; font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px; text-decoration: none" href="/">Головна</a>
             @foreach(\App\Models\Category::all()->sortBy('position') as $category)
                 <span style="font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px">
-                    <a style="color: white; " href="#">{{ $category->title_ua }}</a>
+                    <a style="color: white; " href="/category/{{ $category->slug }}">{{ $category->title_ua }}</a>
                 </span>
             @endforeach
         </div>

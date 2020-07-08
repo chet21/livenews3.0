@@ -2,8 +2,6 @@
 
 namespace App\Console;
 
-use App\Articles\ArticlesSave;
-use App\Parser\News\NewsParser24Ua;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 

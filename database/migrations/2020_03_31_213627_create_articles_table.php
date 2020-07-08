@@ -20,8 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('slug');
             $table->string('title_ua');
             $table->string('title_ru');
-            $table->string('text_ua');
-            $table->string('text_ru');
+            $table->text('text_ua');
+            $table->text('text_ru');
             $table->string('img');
             $table->integer('views');
             $table->boolean('active')->default(1);

@@ -6,7 +6,6 @@ namespace App\Articles;
 
 use App\Models\Article;
 use App\Models\Tag;
-use App\Parser\News\BaseNewsParser;
 
 class ArticlesSave
 {

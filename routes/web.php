@@ -14,14 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', 'IndexController@index');
+Route::middleware('lang')->group(function () {
+    Route::get('/', 'IndexController@index');
+});
 
-//Route::middleware('auth:admin')->group(function () {
     Route::group(['prefix' => 'news'], function () {
         Route::get('/{ident}', 'NewsController@oneArticle')->name('one_article');
         Route::post('/comment', 'NewsController@setComment')->name('set_comment')->middleware('auth');
     });
-//});
+
+    Route::group(['prefix' => 'category'], function () {
+        Route::get('/{category}', 'CategoryController@getAllByCategory')->name('by_category_news');
+    });
 
 //Route::middleware('auth:admin')->group(function () {
     Route::group(['prefix' => 'admin'], function () {

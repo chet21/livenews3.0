@@ -91,6 +91,26 @@ return [
             'prefix_indexes' => true,
         ],
 
+        'old_server' => [
+            'driver' => 'mysql',
+            'url' => env('DATABASE_URL'),
+            'host' => env('DB_OLD_HOST', 's1-de.thehost.com.ua'),
+            'port' => env('DB_OLD_PORT', '3306'),
+            'database' => env('DB_OLD_DATABASE', 'livenews'),
+            'username' => env('DB_OLD_USERNAME', 'chet21'),
+            'password' => env('DB_OLD_PASSWORD', 'QazmnB12'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => false,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
     ],
 
     /*

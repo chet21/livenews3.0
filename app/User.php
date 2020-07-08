@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\User;
 
 use App\Traits\HasRolesAndPermissions;
 use Illuminate\Contracts\Auth\MustVerifyEmail;

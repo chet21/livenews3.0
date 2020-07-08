@@ -5,19 +5,17 @@ namespace App\Http\Controllers;
 
 
 
-use App\Articles\ArticlesSave;
 use App\Models\Article;
 use App\Models\Category;
-use App\Models\Tag;
-use App\Parser\News\NewsParser24Ua;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Routing\Controller;
+
 
 class IndexController extends Controller
 {
     public function index(Request $request)
     {
+
         $notIncludeMore = [];
         $hotNews = Article::where('img', '!=', '')->limit(7)->orderBy('id', 'desc')->get();
 //        Cache::put('hot_news', $hotNews);
