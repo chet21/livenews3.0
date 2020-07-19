@@ -17,7 +17,7 @@ class CreateTagsTable extends Migration
             $table->bigIncrements('id');
             $table->string('slug');
             $table->string('title_ua');
-            $table->string('title_ru');
+            $table->string('title_ru')->nullable();
         });
     }
 

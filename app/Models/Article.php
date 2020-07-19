@@ -7,18 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     protected $table = 'articles';
-    protected $fillable = [
-        'origin_id',
-        'category_id',
-        'slug',
-        'title_ua',
-        'title_ru',
-        'text_ua',
-        'text_ru',
-        'img',
-        'views'
-
-    ];
+    protected $guarded = [];
 
     public function tags()
     {

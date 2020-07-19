@@ -17,7 +17,7 @@ class IndexController extends Controller
     {
 
         $notIncludeMore = [];
-        $hotNews = Article::where('img', '!=', '')->limit(7)->orderBy('id', 'desc')->get();
+        $hotNews = Article::where('img', '!=', '')->limit(6)->orderBy('id', 'desc')->get();
 //        Cache::put('hot_news', $hotNews);
 //        $hotNews = Cache::get('hot_news');
         foreach ($hotNews as $hotNew) {

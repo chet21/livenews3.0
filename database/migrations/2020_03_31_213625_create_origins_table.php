@@ -16,7 +16,7 @@ class CreateOriginsTable extends Migration
         Schema::create('origins', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('src');
+            $table->string('src')->nullable();
             $table->string('img')->nullable();
         });
     }

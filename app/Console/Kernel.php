@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\Articles\ArticlesSave;
+use App\Parser\News\NewsParser24Ua;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
          $schedule->call(function (){
-             ArticlesSave::asParser(new NewsParser24Ua(5));
+             ArticlesSave::asParser(new NewsParser24Ua(2));
          })->everyMinute();
     }
 

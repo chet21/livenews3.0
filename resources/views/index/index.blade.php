@@ -5,27 +5,32 @@
         <div class="row">
             <div class="col-4">
                 <div class="row" style="height: 225px; ">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[0]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[0]->slug.'_n'.$hotNews[0]->id]) }}">{{ $hotNews[0]->title_ua }}</a>
+                    @isset($hotNews[0])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[0]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[0]->slug.'_n'.$hotNews[0]->id]) }}">{{ $hotNews[0]->title_ua }}</a>
+                            </div>
+                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[0]->created_at)) }}</div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[0]->created_at)) }}</div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[0]->categories->color }}">{{ $hotNews[0]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[0]->categories->color }}">{{ $hotNews[0]->categories->title_ua }}</div>
+                    @endisset
+
                 </div>
                 <div class="row" style="height: 225px">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[1]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[1]->slug.'_n'.$hotNews[1]->id]) }}">{{ $hotNews[1]->title_ua }}</a>
+                    @isset($hotNews[1])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[1]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[1]->slug.'_n'.$hotNews[1]->id]) }}">{{ $hotNews[1]->title_ua }}</a>
+                            </div>
+                            <div>
+                                <i class="far fa-clock"></i>
+                                <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[1]->created_at)) }}</div>
+                            </div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div>
-                            <i class="far fa-clock"></i>
-                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[1]->created_at)) }}</div>
-                        </div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[1]->categories->color }}">{{ $hotNews[1]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[1]->categories->color }}">{{ $hotNews[1]->categories->title_ua }}</div>
+                    @endisset
                 </div>
             </div>
 {{--            <div class="col-6">--}}
@@ -43,46 +48,54 @@
 {{--            </div>--}}
             <div class="col-4">
                 <div class="row" style="height: 225px">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[3]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[3]->slug.'_n'.$hotNews[3]->id]) }}">{{ $hotNews[3]->title_ua }}</a>
+                    @isset($hotNews[2])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[2]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[2]->slug.'_n'.$hotNews[2]->id]) }}">{{ $hotNews[2]->title_ua }}</a>
+                            </div>
+                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[2]->created_at)) }}</div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[3]->created_at)) }}</div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[3]->categories->color }}">{{ $hotNews[3]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[2]->categories->color }}">{{ $hotNews[2]->categories->title_ua }}</div>
+                    @endisset
                 </div>
                 <div class="row" style="height: 225px; ">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[4]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[4]->slug.'_n'.$hotNews[4]->id]) }}">{{ $hotNews[4]->title_ua }}</a>
+                    @isset($hotNews[3])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[3]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[3]->slug.'_n'.$hotNews[4]->id]) }}">{{ $hotNews[3]->title_ua }}</a>
+                            </div>
+                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[3]->created_at)) }}</div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[4]->created_at)) }}</div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[4]->categories->color }}">{{ $hotNews[4]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[3]->categories->color }}">{{ $hotNews[3]->categories->title_ua }}</div>
+                    @endisset
                 </div>
             </div>
             <div class="col-4">
                 <div class="row" style="height: 225px">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[5]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[5]->slug.'_n'.$hotNews[5]->id]) }}">{{ $hotNews[5]->title_ua }}</a>
+                    @isset($hotNews[4])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[4]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[4]->slug.'_n'.$hotNews[4]->id]) }}">{{ $hotNews[4]->title_ua }}</a>
+                            </div>
+                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[4]->created_at)) }}</div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[5]->created_at)) }}</div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[5]->categories->color }}">{{ $hotNews[5]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[4]->categories->color }}">{{ $hotNews[4]->categories->title_ua }}</div>
+                    @endisset
                 </div>
                 <div class="row" style="height: 225px; ">
-                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[6]->img }}') no-repeat center center / cover">
-                        <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
-                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[6]->slug.'_n'.$hotNews[6]->id]) }}">{{ $hotNews[6]->title_ua }}</a>
+                    @isset($hotNews[5])
+                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[5]->img }}') no-repeat center center / cover">
+                            <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
+                                <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[5]->slug.'_n'.$hotNews[5]->id]) }}">{{ $hotNews[5]->title_ua }}</a>
+                            </div>
+                            <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[5]->created_at)) }}</div>
+                            <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
                         </div>
-                        <div style="position: absolute; bottom: 5px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; font-size: 10px; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[6]->created_at)) }}</div>
-                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>
-                    </div>
-                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[6]->categories->color }}">{{ $hotNews[6]->categories->title_ua }}</div>
+                        <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[5]->categories->color }}">{{ $hotNews[5]->categories->title_ua }}</div>
+                    @endisset
                 </div>
             </div>
         </div>

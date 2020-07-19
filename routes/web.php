@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Auth::routes();
+Route::get('test','TestController@test')->name('test');
+
 
 Route::middleware('lang')->group(function () {
     Route::get('/', 'IndexController@index');

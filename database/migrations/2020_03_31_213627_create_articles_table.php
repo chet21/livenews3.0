@@ -19,9 +19,9 @@ class CreateArticlesTable extends Migration
             $table->bigInteger('origin_id')->unsigned();
             $table->string('slug');
             $table->string('title_ua');
-            $table->string('title_ru');
+            $table->string('title_ru')->nullable();
             $table->text('text_ua');
-            $table->text('text_ru');
+            $table->text('text_ru')->nullable();
             $table->string('img');
             $table->integer('views');
             $table->boolean('active')->default(1);
