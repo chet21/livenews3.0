@@ -15,39 +15,43 @@
                     <div class="col-12" style="border: 1px solid #F1F1F1; padding: 25px">
                         {{--                <div style="height: 100px; width: 100px;float: left; margin: 0 10px 10px 0;">{{ $article->text_ua[0] }}</div>--}}
                         <p style="display: inline; float: left">{!! $article->text_ua !!}</p>
-                        <div style="height: 1px; border-top: 1px solid #F1F1F1; padding-top: 25px; height: auto">
-                            <i class="fas fa-tags" style="opacity: 0.5"></i>
-                            @foreach( $article->tags->unique()->values()->all() as $tag)
-                                <div style="display: inline-block; color: #686868; margin-left: 15px; text-decoration: underline ">{{ $tag->title_ua }}</div>
-                            @endforeach
-                        </div>
+                        @isset( $article->tags )
+                            <div style="height: 1px; border-top: 1px solid #F1F1F1; padding-top: 25px; height: auto">
+                                <i class="fas fa-tags" style="opacity: 0.5"></i>
+                                @foreach( $article->tags->unique()->values()->all() as $tag)
+                                    <div style="display: inline-block; color: #686868; margin-left: 15px; text-decoration: underline ">{{ $tag->title_ua }}</div>
+                                @endforeach
+                            </div>
+                        @endisset
                     </div>
                 </div>
-                <div class="row" style="margin-top: 25px">
-                    <div class="col-12" style="border: 1px solid #F1F1F1; padding: 25px">
-                        <div class="row">
-                            @foreach($article->comments as $comment)
-                                <div class="col-12" style="min-height: 50px; border: 1px solid #F1F1F1; margin-bottom: 10px">
-                                    <div class="row">
-                                        <div class="col-1" style="margin-left: -15px">
-                                            <div style="height: 50px; width: 50px; margin: 5px; padding: 5px; border: 1px solid silver; border-radius: 50%">
-                                                <i class="far fa-smile" style="height: 10px; width: 10px; margin-left: 12px; margin-top: 10px"></i>
+                @isset($article->comments)
+                    <div class="row" style="margin-top: 25px">
+                        <div class="col-12" style="border: 1px solid #F1F1F1; padding: 25px">
+                            <div class="row">
+                                @foreach($article->comments as $comment)
+                                    <div class="col-12" style="min-height: 50px; border: 1px solid #F1F1F1; margin-bottom: 10px">
+                                        <div class="row">
+                                            <div class="col-1" style="margin-left: -15px">
+                                                <div style="height: 50px; width: 50px; margin: 5px; padding: 5px; border: 1px solid silver; border-radius: 50%">
+                                                    <i class="far fa-smile" style="height: 10px; width: 10px; margin-left: 12px; margin-top: 10px"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-10">
+                                                <div style="font-weight: bold; margin-top: 5px; margin-left: 5px">{{ $comment->users->name }}</div>
+                                                @if(\Illuminate\Support\Facades\Auth::check())
+                                                    <span style="font-weight: lighter; margin-left: 5px; font-size: 11px; cursor: pointer" onclick="comment_response('{{$comment->users->id}}', '{{ \Illuminate\Support\Str::snake($comment->users->name) }}')">{{ '#'.\Illuminate\Support\Str::snake($comment->users->name) }}</span>
+                                                @else
+                                                @endif
+                                                <div style="margin-top: 5px; margin-left: 5px">{{ $comment->text }}</div>
                                             </div>
                                         </div>
-                                        <div class="col-10">
-                                            <div style="font-weight: bold; margin-top: 5px; margin-left: 5px">{{ $comment->users->name }}</div>
-                                            @if(\Illuminate\Support\Facades\Auth::check())
-                                                <span style="font-weight: lighter; margin-left: 5px; font-size: 11px; cursor: pointer" onclick="comment_response('{{$comment->users->id}}', '{{ \Illuminate\Support\Str::snake($comment->users->name) }}')">{{ '#'.\Illuminate\Support\Str::snake($comment->users->name) }}</span>
-                                            @else
-                                            @endif
-                                            <div style="margin-top: 5px; margin-left: 5px">{{ $comment->text }}</div>
-                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endisset
                 <div class="row" style="margin-top: 25px">
                     <div class="col-6" style="border: 1px solid #F1F1F1; padding: 25px"></div>
                     <div class="col-6" style="border: 1px solid #F1F1F1; padding: 25px"></div>
