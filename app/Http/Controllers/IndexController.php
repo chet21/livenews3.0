@@ -25,7 +25,9 @@ class IndexController extends Controller
         }
 
 
-        $categories = Category::has('articles')->get();
+        $categories = Category::whereHas('articles', function ($query) {
+            $query->where('img', '!=', '');
+        }, '>', 8)->get();
         $bodyNews = [];
         foreach ($categories as $category) {
             $bodyNews[$category->slug] = $category->articles()->where('img', '!=', '')->whereNotIn('id', $notIncludeMore)->limit(8)->orderBy('id', 'desc')->get();
@@ -39,6 +41,9 @@ class IndexController extends Controller
         }
 //        Cache::put('body_news', $bodyNews);
 //        $bodyNews =рг Cache::get('body_news');
-        return view('index.index', ['hotNews' => $hotNews, 'bodyNews' => $bodyNews]);
+
+        $left_news = Article::where('img', '=', '')->limit(10)->get()->sortBy('created_at');
+
+        return view('index.index', ['hotNews' => $hotNews, 'bodyNews' => $bodyNews, 'left_news' => $left_news]);
     }
 }

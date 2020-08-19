@@ -16,9 +16,8 @@ Auth::routes();
 Route::get('test','TestController@test')->name('test');
 
 
-Route::middleware('lang')->group(function () {
+Route::middleware(['lang', 'visitor'])->group(function () {
     Route::get('/', 'IndexController@index');
-});
 
     Route::group(['prefix' => 'news'], function () {
         Route::get('/{ident}', 'NewsController@oneArticle')->name('one_article');
@@ -40,6 +39,8 @@ Route::middleware('lang')->group(function () {
 
     });
 //});
+
+});
 
 Auth::routes();
 

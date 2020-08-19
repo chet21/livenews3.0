@@ -24,4 +24,9 @@ class Article extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function origin()
+    {
+        return $this->hasOne(Origin::class, 'id', 'origin_id');
+    }
+
 }

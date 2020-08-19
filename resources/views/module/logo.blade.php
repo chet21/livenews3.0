@@ -4,13 +4,14 @@
         <div class="row">
             <div class="col-3">
                 <div style="display: inline-block; width: 500px; height: 100px; margin-left: -30px; overflow: hidden" >
-                    <img height="140" src="/storage/logo_as3cr4.png">
+                    <img height="140" src="/logo.jpg">
                 </div>
             </div>
-{{--            <div class="col-5 ml-auto">--}}
-{{--                <div style="display: inline-block; width: 500px; height: 100px; background: black; margin-top: 15px"></div>--}}
-{{--            </div>--}}
-
+            <div class="col-5 offset-4">
+                <div style="display: inline-block; width: 500px; height: 100px; margin-top: 45px">
+                    @include('module.ads.block4')
+                </div>
+            </div>
         </div>
     </div>
 </div>

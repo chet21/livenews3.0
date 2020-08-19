@@ -35,7 +35,7 @@ class NewsController extends Controller
             $article->categories = $category;
         }else{
             $request = explode('_n', $request->ident);
-            $article = Article::with(['tags', 'comments'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
+            $article = Article::with(['tags', 'comments', 'origin'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
 
         }
         return view('news.one_article', ['article' => $article]);

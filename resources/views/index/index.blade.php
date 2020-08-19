@@ -101,125 +101,129 @@
         </div>
     </div>
 
-    @foreach($bodyNews as $category)
+
 
         <div class="container" style="margin-top: 25px">
             <div class="row">
                 <div class="col-8">
-                    <div class="row"  style="border: 1px solid #F1F1F1; height: 45px">
-                        <div class="col-12 ml-auto">
-{{--                            <div style="position: absolute; width: 100%; height: 20px; margin-top: 13px; margin-left: -15px; border-left: 3px solid {{ $category[0]->categories->color }}; border-right: 3px solid {{ $category[0]->categories->color }}">--}}
-{{--                                <div style="margin-left: 20px; margin-top: -8px;  font-family: 'PT Sans Narrow', sans-serif; font-size: 25px; color: {{ $category[0]->categories->color }}">{{ $category[0]->categories->title_ua }}</div>--}}
-{{--                            </div>--}}
-                        </div>
-                    </div>
-                    <div class="row" style="border: 1px solid #F1F1F1; margin-top: -1px; ">
-                        <div class="col-6">
-                            @foreach($category as $k => $article)
-                                <div class="row">
-                                    @if($k <= 1)
-                                        @if($k == 1)
-                                            <div class="col-12" style="min-height: 400px; width: 400px;">
-                                                <div style="min-height: 380px; width: 350px; margin-top: 20px; padding-bottom: 15px; background: white;">
-                                                    <div style="width: inherit; height: 210px; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
-                                                    <div style="width: inherit; min-height: 45px; margin-top: 10px; font-family: 'PT Sans Narrow', sans-serif; padding-left: 5px; font-size: 18px">
-                                                        <a style="color: #1F2024 ; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
-                                                    </div>
-                                                    <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 13px">
-                                                        <i class="far fa-clock"></i>
-                                                        <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
-                                                        <i class="far fa-eye" style="margin-left: 15px"></i>
-                                                        <span>({{ $article->views }})</span>
-                                                        <i class="far fa-comments" style="margin-left: 15px"></i>
-                                                        <span>(0)</span>
-                                                    </div>
-                                                    <div style="width: inherit; min-height: 60px; margin-top: 10px">{{ strip_tags($article->description) }}</div>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="col-12" style="min-height: 430px; width: 400px;">
-                                                <div style="min-height: 380px; width: 350px; margin-top: 20px; padding-bottom: 15px; background: white; border-bottom: 1px solid #F1F1F1">
-                                                    <div style="width: inherit; height: 210px; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
-                                                    <div style="width: inherit; min-height: 45px; margin-top: 10px; font-family: 'PT Sans Narrow', sans-serif; padding-left: 5px; font-size: 18px">
-                                                        <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
-                                                    </div>
-                                                    <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 13px">
-                                                        <i class="far fa-clock"></i>
-                                                        <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
-                                                        <i class="far fa-eye" style="margin-left: 15px"></i>
-                                                        <span>({{ $article->views }})</span>
-                                                        <i class="far fa-comments" style="margin-left: 15px"></i>
-                                                        <span>(0)</span>
-                                                    </div>
-                                                    <div style="width: inherit; min-height: 60px; margin-top: 10px">{{ strip_tags($article->description) }}</div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    @endif
+                    @foreach($bodyNews as $category)
+                        <div class="row"  style="border: 1px solid #F1F1F1; height: 45px">
+                            <div class="col-12 ml-auto">
+                                <div style="position: absolute; width: 100%; height: 20px; margin-top: 13px; margin-left: -15px; border-left: 3px solid {{ $category[0]->categories->color }}; border-right: 3px solid {{ $category[0]->categories->color }}">
+                                    <div style="margin-left: 20px; margin-top: -8px;  font-family: 'PT Sans Narrow', sans-serif; font-size: 25px; color: {{ $category[0]->categories->color }}">{{ $category[0]->categories->title_ua }}</div>
                                 </div>
-                            @endforeach
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <div class="row">
+                        <div class="row" style="border: 1px solid #F1F1F1; margin-top: -1px; ">
+                            <div class="col-6">
                                 @foreach($category as $k => $article)
-                                        @if($k >= 2)
-                                        <div class="col-12" style="height: 155px; width: 400px;">
-                                            @if($k == 7)
-                                                <div style="width: 350px; height: 120px; margin-top: 20px; background: white;">
-                                                    <div class="row" >
-                                                        <div class="col-5">
-                                                            <div style="width: inherit; height: 100px; background: red; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                    <div class="row">
+                                        @if($k <= 1)
+                                            @if($k == 1)
+                                                <div class="col-12" style="min-height: 400px; width: 400px;">
+                                                    <div style="min-height: 380px; width: 350px; margin-top: 20px; padding-bottom: 15px; background: white;">
+                                                        <div style="width: inherit; height: 210px; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                                        <div style="width: inherit; min-height: 45px; margin-top: 10px; font-family: 'PT Sans Narrow', sans-serif; padding-left: 5px; font-size: 18px">
+                                                            <a style="color: #1F2024 ; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
                                                         </div>
-                                                        <div class="col-7">
-                                                            <div style="width: inherit; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px">
-                                                                <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
-                                                            </div>
-                                                            {{--                                                        <div style="width: inherit; height: 15px; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px; font-size: 15px">{{ $article->created_at }}</div>--}}
-                                                            <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 10px">
-                                                                <i class="far fa-clock"></i>
-                                                                <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
-                                                                <i class="far fa-eye" style="margin-left: 5px"></i>
-                                                                <span>({{ $article->views }})</span>
-                                                                <i class="far fa-comments" style="margin-left: 5px"></i>
-                                                                <span>(0)</span>
-                                                            </div>
+                                                        <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 13px">
+                                                            <i class="far fa-clock"></i>
+                                                            <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
+                                                            <i class="far fa-eye" style="margin-left: 15px"></i>
+                                                            <span>({{ $article->views }})</span>
+                                                            <i class="far fa-comments" style="margin-left: 15px"></i>
+                                                            <span>(0)</span>
                                                         </div>
+                                                        <div style="width: inherit; min-height: 60px; margin-top: 10px">{{ strip_tags($article->description) }}</div>
                                                     </div>
                                                 </div>
-                                            @else()
-                                                <div style="width: 350px; height: 130px; margin-top: 20px; background: white; border-bottom: 1px solid #F1F1F1">
-                                                    <div class="row" >
-                                                        <div class="col-5">
-                                                            <div style="width: inherit; height: 100px; background: red; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                            @else
+                                                <div class="col-12" style="min-height: 430px; width: 400px;">
+                                                    <div style="min-height: 380px; width: 350px; margin-top: 20px; padding-bottom: 15px; background: white; border-bottom: 1px solid #F1F1F1">
+                                                        <div style="width: inherit; height: 210px; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                                        <div style="width: inherit; min-height: 45px; margin-top: 10px; font-family: 'PT Sans Narrow', sans-serif; padding-left: 5px; font-size: 18px">
+                                                            <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
                                                         </div>
-                                                        <div class="col-7">
-                                                            <div style="width: inherit; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px">
-                                                                <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
-                                                            </div>
-                                                            {{--                                                        <div style="width: inherit; height: 15px; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px; font-size: 15px">{{ $article->created_at }}</div>--}}
-                                                            <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 10px">
-                                                                <i class="far fa-clock"></i>
-                                                                <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
-                                                                <i class="far fa-eye" style="margin-left: 5px"></i>
-                                                                <span>({{ $article->views }})</span>
-                                                                <i class="far fa-comments" style="margin-left: 5px"></i>
-                                                                <span>(0)</span>
-                                                            </div>
+                                                        <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 13px">
+                                                            <i class="far fa-clock"></i>
+                                                            <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
+                                                            <i class="far fa-eye" style="margin-left: 15px"></i>
+                                                            <span>({{ $article->views }})</span>
+                                                            <i class="far fa-comments" style="margin-left: 15px"></i>
+                                                            <span>(0)</span>
                                                         </div>
+                                                        <div style="width: inherit; min-height: 60px; margin-top: 10px">{{ strip_tags($article->description) }}</div>
                                                     </div>
                                                 </div>
                                             @endif
-                                        </div>
                                         @endif
+                                    </div>
                                 @endforeach
                             </div>
+                            <div class="col-6">
+                                <div class="row">
+                                    @foreach($category as $k => $article)
+                                        @if($k >= 2)
+                                            <div class="col-12" style="height: 155px; width: 400px;">
+                                                @if($k == 7)
+                                                    <div style="width: 350px; height: 120px; margin-top: 20px; background: white;">
+                                                        <div class="row" >
+                                                            <div class="col-5">
+                                                                <div style="width: inherit; height: 100px; background: red; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                                            </div>
+                                                            <div class="col-7">
+                                                                <div style="width: inherit; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px">
+                                                                    <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
+                                                                </div>
+                                                                {{--                                                        <div style="width: inherit; height: 15px; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px; font-size: 15px">{{ $article->created_at }}</div>--}}
+                                                                <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 10px">
+                                                                    <i class="far fa-clock"></i>
+                                                                    <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
+                                                                    <i class="far fa-eye" style="margin-left: 5px"></i>
+                                                                    <span>({{ $article->views }})</span>
+                                                                    <i class="far fa-comments" style="margin-left: 5px"></i>
+                                                                    <span>(0)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @else()
+                                                    <div style="width: 350px; height: 130px; margin-top: 20px; background: white; border-bottom: 1px solid #F1F1F1">
+                                                        <div class="row" >
+                                                            <div class="col-5">
+                                                                <div style="width: inherit; height: 100px; background: red; background: url('{{ $article->img }}') no-repeat center center / cover"></div>
+                                                            </div>
+                                                            <div class="col-7">
+                                                                <div style="width: inherit; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px">
+                                                                    <a style="color: #1F2024; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
+                                                                </div>
+                                                                {{--                                                        <div style="width: inherit; height: 15px; font-family: 'PT Sans Narrow', sans-serif; margin-top: 5px; font-size: 15px">{{ $article->created_at }}</div>--}}
+                                                                <div style="width: inherit; min-height: 15px; margin-top: 10px;  padding-left: 5px; font-size: 10px">
+                                                                    <i class="far fa-clock"></i>
+                                                                    <span>{{ date('Y-m-d H:i', strtotime($article->created_at)) }}</span>
+                                                                    <i class="far fa-eye" style="margin-left: 5px"></i>
+                                                                    <span>({{ $article->views }})</span>
+                                                                    <i class="far fa-comments" style="margin-left: 5px"></i>
+                                                                    <span>(0)</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </div>
-                <div class="col-4"></div>
+                <div class="col-4" style="padding-left: 30px; font-size: 14px">
+                    @include('module.left_side')
+                </div>
             </div>
         </div>
-    @endforeach
+
 
 
 @endsection
