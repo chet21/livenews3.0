@@ -97,7 +97,7 @@ return [
             'host' => env('DB_OLD_HOST', 's1-de.thehost.com.ua'),
             'port' => env('DB_OLD_PORT', '3306'),
             'database' => env('DB_OLD_DATABASE', 'livenews'),
-            'username' => env('DB_OLD_USERNAME', 'chet21'),
+            'username' => env('DB_OLD_USERNAME', 'livenews_prod_2'),
             'password' => env('DB_OLD_PASSWORD', 'QazmnB12'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
