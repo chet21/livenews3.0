@@ -26,9 +26,9 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->call(function (){
-             ArticlesSave::asParser(new NewsParser24Ua(2));
-         })->everyMinute();
+//         $schedule->call(function (){
+//             ArticlesSave::asParser(new NewsParser24Ua(2));
+//         })->everyTeMinute();
     }
 
     /**

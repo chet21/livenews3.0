@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 Route::get('test','TestController@test')->name('test');
+Route::get('x019','TestController@test')->name('scheduler');
 
 
 Route::middleware(['lang', 'visitor'])->group(function () {
