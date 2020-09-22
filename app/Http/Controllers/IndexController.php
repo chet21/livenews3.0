@@ -48,9 +48,4 @@ class IndexController extends Controller
 
         return view('index.index', ['hotNews' => $hotNews, 'bodyNews' => $bodyNews, 'left_news' => $left_news]);
     }
-
-    public function scheduler()
-    {
-        ArticlesSave::asParser(new NewsParser24Ua(2));
-    }
 }
