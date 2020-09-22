@@ -51,10 +51,6 @@ class IndexController extends Controller
 
     public function scheduler()
     {
-        $i = 1;
-        do {
-            ArticlesSave::asParser(new NewsParser24Ua(2));
-            sleep(600);
-        } while ($i > 0);
+        ArticlesSave::asParser(new NewsParser24Ua(2));
     }
 }
