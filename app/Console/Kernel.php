@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
                  ArticlesSave::asParser(new NewsParser24Ua(2));
                  sleep(600);
              }
-         })->everyTenMinutes();
+         })->everyMinute();
     }
 
     /**
