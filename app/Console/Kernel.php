@@ -28,7 +28,7 @@ class Kernel extends ConsoleKernel
     {
          $schedule->call(function (){
              ArticlesSave::asParser(new NewsParser24Ua(2));
-         })->everyTenMinutes();
+         })->everyMinute();
     }
 
     /**
