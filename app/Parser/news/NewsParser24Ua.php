@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class NewsParser24Ua extends BaseNewsParser
 {
     private $url = 'https://24tv.ua/';
-    private $id_donor = 1;
+    private $id_donor = 2;
 
     public function __construct($count)
    {
