@@ -44,7 +44,8 @@ class IndexController extends Controller
 //        Cache::put('body_news', $bodyNews);
 //        $bodyNews =рг Cache::get('body_news');
 
-        $left_news = Article::where('img', '=', '')->limit(10)->get()->sortBy('created_at');
+        $count_left_blocks = $categories->count() * 12;
+        $left_news = Article::where('img', '=', '')->limit($count_left_blocks)->get()->orderBy('created_at', 'desc');
 
         return view('index.index', ['hotNews' => $hotNews, 'bodyNews' => $bodyNews, 'left_news' => $left_news]);
     }
