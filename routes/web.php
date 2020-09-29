@@ -33,6 +33,7 @@ Route::middleware(['lang', 'visitor'])->group(function () {
         Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
         Route::get('categories/relation','Admin\CategoryController@newsTagRelation')->name('news-category-relation');
         Route::post('categories/relation','Admin\CategoryController@saveNewsTagRelation')->name('save-tag-category-relation');
+        Route::post('categories/tag/unuse','Admin\CategoryController@setUnuseTag')->name('save-tag-unuse');
         Route::get('categories/list','Admin\CategoryController@categoryList')->name('categories-list');
         Route::post('categories/create','Admin\CategoryController@createCategory')->name('categories-create');
         Route::put('categories/change-position','Admin\CategoryController@changeCategoryPosition')->name('change-position');

@@ -10,6 +10,7 @@
                         <td>title ua</td>
                         <td>title ru</td>
                         <td>belong to category</td>
+                        <td>set unuse</td>
                     </tr>
                     @foreach($tags as $tag)
                         <tr>
@@ -23,6 +24,7 @@
                                     {{ $category->title_ua }}
                                 @endforeach
                             </td>
+                            <td><a onclick="save_tag_unuse({{$tag->id}})" style="color: red; cursor: pointer">save_tag_unuse</a></td>
                         </tr>
                     @endforeach
                 </table>
@@ -78,6 +80,19 @@
                 url: "{{ route('save-tag-category-relation') }}",
                 method: 'post',
                 data: {"_token": "{{ csrf_token() }}", "data": data},
+                success: function (response) {
+                    if(response.status === 200){
+                        location.reload();
+                    }
+                }
+            })
+        }
+        function save_tag_unuse(tag_id)
+        {
+            $.ajax({
+                url: "{{ route('save-tag-unuse') }}",
+                method: 'post',
+                data: {"_token": "{{ csrf_token() }}", "data": {"tag_id":tag_id}},
                 success: function (response) {
                     if(response.status === 200){
                         location.reload();

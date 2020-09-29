@@ -63,7 +63,7 @@ class CategoryController extends Controller
 //        foreach ($tags as &$tag) {
 //            dump($tag->categories);
 //        }
-        $tags = Tag::doesntHave('categories')->paginate(20);
+        $tags = Tag::doesntHave('categories')->where('unuse', '=', null)->paginate(20);
 
         return view('admin.news.relation_news_category', ['tags' => $tags, 'categorise' => $categories]);
     }
@@ -75,5 +75,19 @@ class CategoryController extends Controller
         }
 
         return response()->json(['status' => 200], 200);
+    }
+
+    public function setUnuseTag(Request $request)
+    {
+        $tag = Tag::find(intval($request->data['tag_id']));
+
+        if($tag){
+            $tag->unuse = 1;
+            $tag->save();
+
+            return response()->json(['status' => 200], 200);
+        }else{
+            throw new \Exception('Can`t set tag as unuse');
+        }
     }
 }
