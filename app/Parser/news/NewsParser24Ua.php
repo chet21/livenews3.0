@@ -67,6 +67,8 @@ class NewsParser24Ua extends BaseNewsParser
 
             $text = $html->find('.article_text');
             $text->find('.cke-markup')->remove();
+            $text->find('.adv-news-within')->remove();
+            $text->find('.read-also')->remove();
             $text->find('img')->attr('style','width: 100%');
 //            $img_w = $text->find('p > img')->attr('width');
 //            $text->find('p > img')->wrap('<div style="'.round($img_w/2).'">');
@@ -100,6 +102,8 @@ class NewsParser24Ua extends BaseNewsParser
 
             $text_ru = $title_ru->find('.article_text');
             $text_ru->find('.cke-markup')->remove();
+            $text_ru->find('.adv-news-within')->remove();
+            $text_ru->find('.read-also')->remove();
             $data[$k]['news']['text_ru'] = $this->clean_text(pq($text_ru)->find('#newsSummary')->html());
 
             $tag_ru = $html_ru->find('.tags a');

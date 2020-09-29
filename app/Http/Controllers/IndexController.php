@@ -2,16 +2,12 @@
 
 namespace App\Http\Controllers;
 
-
-
-
 use App\Articles\ArticlesSave;
 use App\Models\Article;
 use App\Models\Category;
 use App\Parser\News\NewsParser24Ua;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-
 
 class IndexController extends Controller
 {
