@@ -63,7 +63,7 @@ class CategoryController extends Controller
 //        foreach ($tags as &$tag) {
 //            dump($tag->categories);
 //        }
-        $tags = Tag::doesntHave('categories')->where('unuse', '=', null)->paginate(20);
+        $tags = Tag::doesntHave('categories')->where('unuse', '=', null)->paginate(10);
 
         return view('admin.news.relation_news_category', ['tags' => $tags, 'categorise' => $categories]);
     }
