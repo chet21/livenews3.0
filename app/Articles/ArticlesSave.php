@@ -16,9 +16,10 @@ class ArticlesSave
             $title_ua = array_shift($item['news']);
             $new_article = Article::firstOrCreate(['title_ua' => $title_ua],$item['news']);
             foreach ($item['tags']['ua'] as $tag1) {
-//                dd([['slug' => $tag1['slug'], ['title_ua' => $tag1['title_ua']]]]);
-                $tag = Tag::firstOrNew(['slug' => $tag1['slug']],['title_ua' => $tag1['title_ua']]);
-                $new_article->tags()->save($tag);
+		if(!empty( $tag1['title_ua'] )){
+		    $tag = Tag::firstOrNew(['slug' => $tag1['slug']],['title_ua' => $tag1['title_ua']]);
+                    $new_article->tags()->save($tag);
+		}
             }
             if(isset($item['tags']['ru'])){
                 foreach ($item['tags']['ru'] as $tag2) {
@@ -26,9 +27,8 @@ class ArticlesSave
                     $new_article->tags()->save($tag);
                 }
             }
-
             $category_rate = [];
-            foreach ($new_article->tags as $tag) {
+            foreach ($new_article->tags()->where('unuse', '=', null)->get() as $tag) {
                 $category = $tag->categories->first();
                 if(isset($category->id)){
                     if(isset($category_rate[$category->id])){
@@ -39,9 +39,11 @@ class ArticlesSave
                 }
             }
             arsort($category_rate);
-            foreach ($category_rate as $k => $item){
-            $new_article->update(['category_id' => $k]);
+	    if(count($category_rate) >= 1){
+	      foreach ($category_rate as $k => $item){
+                $new_article->update(['category_id' => $k]);
                 break;
+            }
             }
         }
     }

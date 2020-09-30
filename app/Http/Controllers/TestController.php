@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Parser\News\NewsParser24Ua;
 use Illuminate\Http\Request;
+use App\Models\Article;
+use App\Articles\ArticlesSave;
 
 class TestController extends Controller
 {
     public function test()
     {
-        $x = new NewsParser24Ua(1);
-        dd($x->getData());
+        ArticlesSave::asParser(new NewsParser24Ua(1));
     }
 }
