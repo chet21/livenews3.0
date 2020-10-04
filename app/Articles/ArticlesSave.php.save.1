@@ -13,26 +13,20 @@ class ArticlesSave
     public static function asParser(BaseNewsParser $news)
     {
         foreach ($news->getData() as $item){
-	//dump($item);
             $title_ua = array_shift($item['news']);
             $new_article = Article::firstOrCreate(['title_ua' => $title_ua],$item['news']);
-//TODO: створюються лищні звязки тегів до новини
-dump($new_article);
-            //if(!$new_article->exists){
-	      foreach ($item['tags']['ua'] as $tag1) {
-                if(!empty( $tag1['title_ua'] )){
-                    $tag = Tag::firstOrNew(['slug' => $tag1['slug']],['title_ua' => $tag1['title_ua']]);
+            foreach ($item['tags']['ua'] as $tag1) {
+		if(!empty( $tag1['title_ua'] )){
+		    $tag = Tag::firstOrNew(['slug' => $tag1['slug']],['title_ua' => $tag1['title_ua']]);
+                    $new_article->tags()->save($tag);
+		}
+            }
+            if(isset($item['tags']['ru'])){
+                foreach ($item['tags']['ru'] as $tag2) {
+                    $tag = Tag::firstOrNew(['slug' => $tag2['slug']],['title_ru' => $tag2['title_ru']]);
                     $new_article->tags()->save($tag);
                 }
-              }    
-  	    //}
-//TODO: потрібно переробити шоб теги додавалися разом з російськими
-           // if(isset($item['tags']['ru'])){
-             //   foreach ($item['tags']['ru'] as $tag2) {
-               //     $tag = Tag::firstOrNew(['slug' => $tag2['slug']],['title_ru' => $tag2['title_ru']]);
-                 //   $new_article->tags()->save($tag);
-                //}
-            //}
+            }
             $category_rate = [];
             foreach ($new_article->tags()->where('unuse', '=', null)->get() as $tag) {
                 $category = $tag->categories->first();
@@ -44,16 +38,14 @@ dump($new_article);
                     }
                 }
             }
+            arsort($category_rate);
+	dd($category_rate);
 	    if(count($category_rate) >= 1){
-	      arsort($category_rate);
-	      $flag = 0;
-	      foreach ($category_rate as $k => $item){
-               if($flag < 1){
-	         $new_article->category_id = $k;
-		 $new_article->save();
-		 $flag++;	
-               }  
-              }
+	      //foreach ($category_rate as $k => $item){
+              //  $new_article->update(['category_id' => $k]);
+              //  break;
+		$catego
+            }
             }
         }
     }
