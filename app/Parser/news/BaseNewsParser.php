@@ -52,4 +52,10 @@ abstract class BaseNewsParser extends BaseParser
     {
         return rand(1, 600);
     }
+
+    public function change_data_src_data($text)
+    {
+        $text = preg_replace('/data-src/', 'src', $text);
+        return $text;
+    }
 }
