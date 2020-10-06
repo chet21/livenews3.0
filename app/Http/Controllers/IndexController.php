@@ -25,7 +25,7 @@ class IndexController extends Controller
 
         $categories = Category::whereHas('articles', function ($query) {
             $query->where('img', '!=', '');
-        }, '>', 8)->get();
+        }, '>', 8)->get()->sortBy('position');
         $bodyNews = [];
         foreach ($categories as $category) {
             $bodyNews[$category->slug] = $category->articles()->where('img', '!=', '')->whereNotIn('id', $notIncludeMore)->limit(8)->orderBy('id', 'desc')->get();
