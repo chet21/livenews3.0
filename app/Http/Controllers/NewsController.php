@@ -40,8 +40,9 @@ class NewsController extends Controller
            }
         }else{
             $request = explode('_n', $request->ident);
-            $article = Article::with(['tags', 'comments', 'origin'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
-
+            $article = Article::with(['tags' => function($tags){
+                $tags->whereNull('unuse')->select('title_ua');
+            }, 'comments', 'origin'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
         }
         return view('news.one_article', ['article' => $article]);
     }

@@ -1,5 +1,21 @@
 @extends('layouts.index')
 
+@section('title')
+    {{ $article->title_ua }}
+@endsection
+
+@section('keywords')
+    @isset($article->tags)
+        @php
+            $keywords_line = '';
+            foreach ($article->tags as $tag){
+                $keywords_line .= $tag->title_ua.', ';
+            }
+        @endphp
+        {{ trim($keywords_line) }}
+    @endisset
+@endsection
+
 @section('body')
     <div class="container" style="margin-top: 25px">
         <div class="row" style="height: 200px; overflow: hidden">
