@@ -42,8 +42,8 @@ class IndexController extends Controller
 
         $count_left_blocks = $categories->count() * 12;
         $left_news = Article::where('img', '=', '')->limit($count_left_blocks)->get()->sortBy('created_at');
-dump($count_left_blocks);
-dump(count($left_news));
+//dump($count_left_blocks);
+//dump(count($left_news));
         return view('index.index', ['hotNews' => $hotNews, 'bodyNews' => $bodyNews, 'left_news' => $left_news]);
     }
 }

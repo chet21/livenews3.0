@@ -14,7 +14,7 @@ class CategoryController extends Controller
     public function getAllByCategory(Request $request)
     {
         $category = Category::where('slug', $request->category)->first();
-        $articles = $category->articles()->where('img', '!=', '')->paginate(18);
+        $articles = $category->articles()->where('img', '!=', '')->get()->sortByDesc('id');
 
         return response()->view('news.category_articles', ['articles' => $articles]);
     }
