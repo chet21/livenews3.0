@@ -46,3 +46,4 @@ Route::middleware(['lang', 'visitor'])->group(function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/getMenu', 'MenuController@getMenu')->name('get-menu');

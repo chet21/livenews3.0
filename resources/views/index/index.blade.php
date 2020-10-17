@@ -3,7 +3,7 @@
 @section('body')
     <div class="container" style="margin-top: 30px">
         <div class="row">
-            <div class="col-4">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="row" style="height: 225px; ">
                     @isset($hotNews[0])
                         <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[0]->img }}') no-repeat center center / cover">
@@ -33,20 +33,7 @@
                     @endisset
                 </div>
             </div>
-{{--            <div class="col-6">--}}
-{{--                <div class="row" style="height: 450px">--}}
-{{--                    <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[2]->img }}') no-repeat center center / cover">--}}
-{{--                        <div style="position: absolute; bottom: 40px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-size: 20px; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">--}}
-{{--                            <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[2]->slug.'_n'.$hotNews[2]->id]) }}">{{ $hotNews[2]->title_ua }}</a>--}}
-{{--                        </div>--}}
-{{--                        <div style="position: absolute; bottom: 10px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-size: 10px; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">{{ date('y-m-d H:i', strtotime($hotNews[2]->created_at)) }}</div>--}}
-{{--                        <div style="position: absolute; bottom: 0; left: 0; width: inherit; height: 100px; opacity: 0.9; background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1));"></div>--}}
-{{--                    </div>--}}
-{{--                    <div style="position: absolute; height: auto; padding: 4px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; background: {{ $hotNews[2]->categories->color }}">--}}
-{{--                        {{ $hotNews[2]->categories->title_ua }}</div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-            <div class="col-4">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="row" style="height: 225px">
                     @isset($hotNews[2])
                         <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[2]->img }}') no-repeat center center / cover">
@@ -72,7 +59,7 @@
                     @endisset
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
                 <div class="row" style="height: 225px">
                     @isset($hotNews[4])
                         <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[4]->img }}') no-repeat center center / cover">
@@ -100,12 +87,9 @@
             </div>
         </div>
     </div>
-
-
-
-        <div class="container" style="margin-top: 25px">
+    <div class="container" style="margin-top: 25px">
             <div class="row">
-                <div class="col-8">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-md-8 col-sm-12 col-xs-12">
                     @foreach($bodyNews as $category)
                         <div class="row"  style="border: 1px solid #F1F1F1; height: 45px">
                             <div class="col-12 ml-auto">
@@ -115,7 +99,7 @@
                             </div>
                         </div>
                         <div class="row" style="border: 1px solid #F1F1F1; margin-top: -1px; ">
-                            <div class="col-6">
+                            <div class="ol-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12">
                                 @foreach($category as $k => $article)
                                     <div class="row">
                                         @if($k <= 1)
@@ -160,7 +144,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="col-6">
+                            <div class="ol-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="row">
                                     @foreach($category as $k => $article)
                                         @if($k >= 2)
@@ -218,12 +202,11 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="col-4" style="padding-left: 30px; font-size: 14px">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 d-none d-sm-block d-md-block" style="padding-left: 30px; font-size: 14px">
                     @include('module.left_side')
                 </div>
             </div>
         </div>
-
-
-
 @endsection
+
+{{--col-xl-4 col-lg-4 col-md-4 d-none d-sm-block d-md-block--}}

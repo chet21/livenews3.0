@@ -12,7 +12,7 @@
             </div>
             <div class="row" style="margin-top: 15px">
                 @foreach($articles as $article)
-                    <div class="col-4" style="height: 200px; background: url({{ $article->img }}) no-repeat center center / cover; border: solid white 2px;">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12" style="height: 200px; background: url({{ $article->img }}) no-repeat center center / cover; border: solid white 2px;">
                         <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
                             <a style="color: white; text-decoration: none" href="{{ route('one_article', [$article->slug.'_n'.$article->id]) }}">{{ $article->title_ua }}</a>
                         </div>
@@ -22,14 +22,14 @@
                 @endforeach
             </div>
             <div class="row justify-content-center">
-                <div class="col-8">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-md-12 col-sm-12 col-xs-12">
                     <div style="display: inline-block; width: 500px; height: 100px; margin-top: 15px">
                         @include('module.ads.block1')
                     </div>
                 </div>
             </div>
            <div class="row justify-content-center" style="margin-top: 15px">
-               <div class="col-4">
+               <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
                    {{ $articles->links() }}
                </div>
            </div>

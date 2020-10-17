@@ -1,7 +1,7 @@
 <div class="container-fluid" style="height: 40px; border: 1px solid rgb(241, 241, 241)">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-12" style="height: 10px">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-md-12 col-sm-12 d-none d-sm-block" style="height: 10px">
                 <div style="display: inline-block; height: 40px; width: auto; margin-top: -1px; background: lightskyblue; padding: 9px 9px 0px 10px">
                     <i class="far fa-clock" style="opacity: 0.5"></i>
                     <span style="margin-top: -3px; font-size: 10px">Sunday, March 25, 2019</span>
