@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background: #1f2024; margin-top: 25px">
     <div class="row" style="min-height: 200px; padding: 100px">
-        <div class="col-3 d-none d-sm-block">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
             <div style="padding-left: 10px; padding-right: 10px">
                 <div class="row" style="height: 18px">
                     <div style="height: 15px; border-left: 4px solid #7BCEF8; margin-top: 7px;"></div>
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3 d-none d-sm-block">
+        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
             <div style="padding-right: 10px; padding-left: 10px">
                 <div class="row" style="height: 18px">
                     <div style="height: 15px; border-left: 4px solid #7BCEF8; margin-top: 7px;"></div>

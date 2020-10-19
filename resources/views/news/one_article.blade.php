@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-8">
+            <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="row" style="margin-top: 25px">
                     <div class="col-12" style="border: 1px solid #F1F1F1; padding: 25px">
                         {{--                <div style="height: 100px; width: 100px;float: left; margin: 0 10px 10px 0;">{{ $article->text_ua[0] }}</div>--}}
@@ -122,7 +122,7 @@
                     {{--</div>--}}
                 {{--@endguest--}}
             </div>
-            <div class="col-4"style="margin-top: 25px">
+            <div class="col-4 d-none d-xs-none"style="margin-top: 25px">
                 <div>
                     @include('module.ads.block3')
                 </div>

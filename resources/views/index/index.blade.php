@@ -59,10 +59,10 @@
                     @endisset
                 </div>
             </div>
-            <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 d-none d-xl-block d-lg-block">
                 <div class="row" style="height: 225px">
                     @isset($hotNews[4])
-                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[4]->img }}') no-repeat center center / cover">
+                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-xs-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[4]->img }}') no-repeat center center / cover">
                             <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
                                 <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[4]->slug.'_n'.$hotNews[4]->id]) }}">{{ $hotNews[4]->title_ua }}</a>
                             </div>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="row" style="height: 225px; ">
                     @isset($hotNews[5])
-                        <div class="col-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[5]->img }}') no-repeat center center / cover">
+                        <div class="col-xl-12 col-lg-12 col-md-6 col-sm-12 col-xs-12" style="border-right: 1px solid white; border-bottom: 1px solid white; background: url('{{ $hotNews[5]->img }}') no-repeat center center / cover">
                             <div style="position: absolute; bottom: 20px; padding-left: 5px; padding-right: 5px; color: #F1F1F1; font-family: 'PT Sans Narrow', sans-serif; z-index: 100">
                                 <a style="color: white; text-decoration: none" href="{{ route('one_article', [$hotNews[5]->slug.'_n'.$hotNews[5]->id]) }}">{{ $hotNews[5]->title_ua }}</a>
                             </div>
@@ -89,7 +89,7 @@
     </div>
     <div class="container" style="margin-top: 25px">
             <div class="row">
-                <div class="col-xl-8 col-lg-8 col-md-8 col-md-8 col-sm-12 col-xs-12">
+                <div class="col-xl-8 col-lg-8 col-md-12 col-md-12 col-sm-12 col-xs-12">
                     @foreach($bodyNews as $category)
                         <div class="row"  style="border: 1px solid #F1F1F1; height: 45px">
                             <div class="col-12 ml-auto">
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                         <div class="row" style="border: 1px solid #F1F1F1; margin-top: -1px; ">
-                            <div class="ol-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 @foreach($category as $k => $article)
                                     <div class="row">
                                         @if($k <= 1)
@@ -144,7 +144,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="ol-xl-6 col-lg-6 col-md-6 col-md-6 col-sm-12 col-xs-12">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                 <div class="row">
                                     @foreach($category as $k => $article)
                                         @if($k >= 2)
@@ -202,7 +202,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 d-none d-sm-block d-md-block" style="padding-left: 30px; font-size: 14px">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 d-none d-lx-block d-lg-block" style="padding-left: 30px; font-size: 14px">
                     @include('module.left_side')
                 </div>
             </div>

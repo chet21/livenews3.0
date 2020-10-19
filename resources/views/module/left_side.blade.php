@@ -1,6 +1,6 @@
 @if($left_news)
     @foreach($left_news as $k => $v)
-        @if(($k / 12) == 0)
+        @if(is_int($k / 12))
             <div class="row" style="padding-left: 50px;">
                 @include('module.ads.block2')
             </div>
