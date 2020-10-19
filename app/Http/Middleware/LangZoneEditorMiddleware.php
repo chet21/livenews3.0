@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 class LangZoneEditorMiddleware
 {
@@ -15,23 +16,30 @@ class LangZoneEditorMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle(Request $request, Closure $next)
     {
-        $locale = $this->getLocale();
-//        dd($locale);
-        App::setLocale($locale);
-//        dd($request);
+        if(Cookie::has('lang')){
+            App::setLocale(Cookie::get('lang'));
+        }else{
+            $this->getLocale($request);
+            App::setLocale(\cookie()->queued('lang')->getValue());
+        }
+
         return $next($request);
     }
 
-    public function getLocale() {
+    public function getLocale(Request $request) {
         $uri = \Illuminate\Support\Facades\Request::path();
         $segmentsURI = explode('/',$uri);
-        if (empty($segmentsURI[0]) && !session('lang')) {
-            return 'ua';
-        }elseif (empty($segmentsURI[0]) && session('lang')){
-            return session('lang');
+        switch (empty($segmentsURI[0])){
+            case 'ua' :
+                Cookie::queue('lang', 'ua');
+            break;
+            case 'ru' :
+                Cookie::queue('lang', 'ru');
+            break;
+            default:
+                Cookie::queue('lang', 'ua');
         }
     }
-
 }

@@ -1,7 +1,7 @@
 @extends('layouts.index')
 
 @section('title')
-    {{ $article->title_ua }}
+    {{ $article->title }}
 @endsection
 
 @section('keywords')
@@ -9,7 +9,7 @@
         @php
             $keywords_line = '';
             foreach ($article->tags as $tag){
-                $keywords_line .= $tag->title_ua.', ';
+                $keywords_line .= $tag->title.', ';
             }
         @endphp
         {{ trim($keywords_line) }}
@@ -23,9 +23,9 @@
                 <div style="position: absolute; height: inherit; width: 100%; margin-left: -15px; background: rgba(0,0,0,0.7);"></div>
             </div>
             <div style="position: absolute; width: 75%; font-size: 30px; margin-top: 40px; margin-left: 30px; color: white; font-family: 'PT Sans Narrow', sans-serif;">
-                <h1>{{ $article->title_ua }}</h1>
+                <h1>{{ $article->title }}</h1>
             </div>
-            <div style="position: absolute; margin-top: 140px; margin-left: 30px; padding: 2px 15px 2px 15px; border-radius: 2px; background: {{ $article->categories->color}}; color: white">{{ $article->categories->title_ua}}</div>
+            <div style="position: absolute; margin-top: 140px; margin-left: 30px; padding: 2px 15px 2px 15px; border-radius: 2px; background: {{ $article->categories->color}}; color: white">{{ $article->categories->title}}</div>
             <div style="position: absolute; margin-top: 140px; margin-left: 145px; padding: 2px 15px 2px 15px; border-radius: 2px; background: white">
                 <a href="http://{{ $article->origin->src}}" style="text-decoration: none; color: black;">{{ $article->origin->title}}</a>
             </div>
@@ -34,13 +34,13 @@
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
                 <div class="row" style="margin-top: 25px">
                     <div class="col-12" style="border: 1px solid #F1F1F1; padding: 25px">
-                        {{--                <div style="height: 100px; width: 100px;float: left; margin: 0 10px 10px 0;">{{ $article->text_ua[0] }}</div>--}}
-                        <p style="display: inline; float: left">{!! $article->text_ua !!}</p>
+                        {{--                <div style="height: 100px; width: 100px;float: left; margin: 0 10px 10px 0;">{{ $article->text[0] }}</div>--}}
+                        <p style="display: inline; float: left">{!! $article->text !!}</p>
                         @isset( $article->tags )
                             <div style="height: 1px; border-top: 1px solid #F1F1F1; padding-top: 25px; height: auto">
                                 <i class="fas fa-tags" style="opacity: 0.5"></i>
                                 @foreach( $article->tags->unique()->values()->all() as $tag)
-                                    <div style="display: inline-block; color: #686868; margin-left: 15px; text-decoration: underline ">{{ $tag->title_ua }}</div>
+                                    <div style="display: inline-block; color: #686868; margin-left: 15px; text-decoration: underline ">{{ $tag->title }}</div>
                                 @endforeach
                             </div>
                         @endisset

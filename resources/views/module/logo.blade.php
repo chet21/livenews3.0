@@ -7,7 +7,7 @@
                     <img height="140" src="/logo.jpg">
                 </div>
             </div>
-            <div class="col-xl-5 col-lg-5 col-md-6 d-none d-sm-block d-md-block">
+            <div class="col-xl-5 col-lg-5 col-md-6 d-none d-xl-block d-lg-block d-md-block">
                 <div style="display: inline-block; width: 500px; height: 100px; margin-top: 45px">
                     @include('module.ads.block4')
                 </div>

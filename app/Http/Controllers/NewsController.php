@@ -7,6 +7,7 @@ use App\Models\Comment;
 use Egulias\EmailValidator\Exception\ExpectingAT;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PhpParser\Node\Stmt\DeclareDeclare;
@@ -17,7 +18,7 @@ class NewsController extends Controller
     {
         if(preg_match('/^[0-9]+$/', $request->ident)){
            try{
-               $old_article = DB::connection('old_server')->table('news')->where('id', intval($request->ident))->first();
+               $old_article = DB::connection('old_server')->table('news')->select('*', 'title_'.App::getLocale().' as title')->where('id', intval($request->ident))->first();
                $category = new \stdClass();
                $category->title_ua = '1';
 
@@ -25,10 +26,8 @@ class NewsController extends Controller
                $article->id = $old_article->id;
                $article->category_id = $old_article->id_category;
                $article->origin_id = $old_article->id_donor;
-               $article->title_ua = $old_article->title_ua;
-               $article->title_ru = $old_article->title_ru;
-               $article->text_ua = $old_article->text_ua;
-               $article->text_ru = $old_article->text_ru;
+               $article->title = $old_article->title;
+               $article->text = $old_article->text;
                $article->img = $old_article->img;
                $article->views = $old_article->view ?? 0;
                $article->active = 1;
@@ -40,8 +39,8 @@ class NewsController extends Controller
            }
         }else{
             $request = explode('_n', $request->ident);
-            $article = Article::with(['tags' => function($tags){
-                $tags->whereNull('unuse')->select('title_ua');
+            $article = Article::select('*', 'title_'.App::getLocale().' as title', 'text_'.App::getLocale().' as text')->with(['tags' => function($tags){
+                $tags->whereNull('unuse');
             }, 'comments', 'origin'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
         }
         return view('news.one_article', ['article' => $article]);

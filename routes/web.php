@@ -16,8 +16,11 @@ Auth::routes();
 Route::get('test','TestController@test')->name('test');
 
 
+Route::post('/set-lang', 'Cookie@setLang')->name('set-lang');
+
 Route::middleware(['lang', 'visitor'])->group(function () {
     Route::get('/', 'IndexController@index');
+    Route::get('/ru', 'IndexController@index');
 
     Route::group(['prefix' => 'news'], function () {
         Route::get('/{ident}', 'NewsController@oneArticle')->name('one_article');

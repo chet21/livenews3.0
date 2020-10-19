@@ -5,8 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="col-12 d-none d-xl-block d-lg-block" style="margin-top: 13px">
-                <a style="color: #7BCEF8; font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px; text-decoration: none" href="/">Головна</a>
-                @foreach(\App\Models\Category::whereHas('articles', function ($query) {
+                @if(\Illuminate\Support\Facades\App::getLocale() == 'ua')
+                    <a style="color: #7BCEF8; font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px; text-decoration: none" href="/">Головна</a>
+                @elseif(\Illuminate\Support\Facades\App::getLocale() === 'ru')
+                    <a style="color: #7BCEF8; font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px; text-decoration: none" href="/">Главная</a>
+                @endif
+                @foreach(\App\Models\Category::select('title_'.\Illuminate\Support\Facades\App::getLocale().' as title_ua', 'position', 'slug')->whereHas('articles', function ($query) {
                         $query->where('img', '!=', '');
                     }, '>', 8)->get()->sortBy('position') as $category)
                     <span style="font-family: 'PT Sans Narrow', sans-serif; padding: 13px 15px 0px 13px">
@@ -20,7 +24,7 @@
                 <div style="height: 1.5px; width: 35px; border: 1px solid silver; margin-top: 5px; margin-left: 6px"></div>
             </div>
             <div id="xs-menu" class="col-12 d-xl-none d-lg-none">
-                @foreach(\App\Models\Category::whereHas('articles', function ($query) {
+                @foreach(\App\Models\Category::select('title_'.\Illuminate\Support\Facades\App::getLocale().' as title_ua', 'position', 'slug')->whereHas('articles', function ($query) {
                         $query->where('img', '!=', '');
                     }, '>', 8)->get()->sortBy('position') as $category)
                     <div class="menu_item col-12" style="width:100%; color: white; padding-top: 10px">

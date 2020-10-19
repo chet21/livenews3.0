@@ -17,7 +17,7 @@
 </head>
 <body style="background: white">
 
-{{--@include('module.servises_top')--}}
+@include('module.servises_top')
 @include('module.logo')
 @include('module.menu')
 @yield('body')

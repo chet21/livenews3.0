@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 
 class Article extends Model
 {
@@ -16,7 +17,7 @@ class Article extends Model
 
     public function categories()
     {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+        return $this->hasOne(Category::class, 'id', 'category_id')->select('*', 'title_'.App::getLocale().' as title');
     }
 
     public function comments()
