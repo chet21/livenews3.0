@@ -3,13 +3,13 @@
 @section('body')
     @isset($articles)
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-8">
-                    <div style="display: inline-block; width: 500px; height: 100px; margin-top: 15px">
-                        @include('module.ads.block1')
-                    </div>
-                </div>
-            </div>
+{{--            <div class="row justify-content-center">--}}
+{{--                <div class="col-8 ">--}}
+{{--                    <div style="display: inline-block; width: 500px; height: 100px; margin-top: 15px">--}}
+{{--                        @include('module.ads.block1')--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
             <div class="row" style="margin-top: 15px">
                 @foreach($articles as $article)
                     <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12" style="height: 200px; background: url({{ $article->img }}) no-repeat center center / cover; border: solid white 2px;">
@@ -28,11 +28,11 @@
                     </div>
                 </div>
             </div>
-           <div class="row justify-content-center" style="margin-top: 15px">
-               <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">
-                   {{ $articles->links() }}
-               </div>
-           </div>
+{{--           <div class="row justify-content-center" style="margin-top: 15px">--}}
+{{--               <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">--}}
+{{--                   {{ $articles->links() }}--}}
+{{--               </div>--}}
+{{--           </div>--}}
         </div>
     @endisset
 @endsection

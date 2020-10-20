@@ -18,7 +18,13 @@ class NewsController extends Controller
     {
         if(preg_match('/^[0-9]+$/', $request->ident)){
            try{
-               $old_article = DB::connection('old_server')->table('news')->select('*', 'title_'.App::getLocale().' as title')->where('id', intval($request->ident))->first();
+               $old_article = DB::connection('old_server')
+                   ->table('news')
+                   ->select('*', 'title_'.App::getLocale().' as title', 'text_'.App::getLocale().' as text')
+                   ->where('id', intval($request->ident))
+                   ->first();
+
+               $db_category = DB::connection('old_server')->table('category')->select('category_'.App::getLocale().' as category')->first();
                $category = new \stdClass();
                $category->title_ua = '1';
 
@@ -27,13 +33,22 @@ class NewsController extends Controller
                $article->category_id = $old_article->id_category;
                $article->origin_id = $old_article->id_donor;
                $article->title = $old_article->title;
-               $article->text = $old_article->text;
+               $article->text = preg_replace('/data-src/', 'src', $old_article->text);
                $article->img = $old_article->img;
                $article->views = $old_article->view ?? 0;
                $article->active = 1;
                $article->created_at = $old_article->time;
 
-               $article->categories = $category;
+               $article->categories = (object) [];
+               $article->categories->color = 'silver';
+               $article->categories->title = $db_category->category;
+
+               $article->origin = (object) [];
+               $article->origin->src = 'http://24tv.ua/';
+               $article->origin->title = '24Канал';
+
+
+
            }catch (\Exception $e){
                abort(404);
            }

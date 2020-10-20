@@ -22,8 +22,11 @@
             <div class="col-12" style="height: inherit; background: url('{{ $article->img }}') no-repeat center center / cover;">
                 <div style="position: absolute; height: inherit; width: 100%; margin-left: -15px; background: rgba(0,0,0,0.7);"></div>
             </div>
-            <div style="position: absolute; width: 75%; font-size: 30px; margin-top: 40px; margin-left: 30px; color: white; font-family: 'PT Sans Narrow', sans-serif;">
-                <h1>{{ $article->title }}</h1>
+            <div class="d-none d-xl-block d-lg-block" style="position: absolute; width: 70%; font-size: 28px; margin-top: 40px; margin-left: 30px; padding-right: 50px; color: white; font-family: 'PT Sans Narrow', sans-serif;">
+                <h1 style="font-size: 35px;">{{ $article->title }}</h1>
+            </div>
+            <div class="d-xl-none d-lg-none" style="position: absolute; width: 75%; margin-top: 40px; margin-left: 30px; color: white; font-family: 'PT Sans Narrow', sans-serif;">
+                <h1 style="font-size: 25px; ">{{ $article->title }}</h1>
             </div>
             <div style="position: absolute; margin-top: 140px; margin-left: 30px; padding: 2px 15px 2px 15px; border-radius: 2px; background: {{ $article->categories->color}}; color: white">{{ $article->categories->title}}</div>
             <div style="position: absolute; margin-top: 140px; margin-left: 145px; padding: 2px 15px 2px 15px; border-radius: 2px; background: white">

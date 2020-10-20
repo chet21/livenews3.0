@@ -34,7 +34,9 @@
                     <div class="co-1 ml-auto">
                         <span>
                             <img src="{{asset('/ico/icon-ua.png')}}" onclick="set_lang('ua')">
+                            <a href="/" hidden></a>
                             <img src="{{asset('/ico/icon-ru.png')}}" onclick="set_lang('ru')">
+                            <a href="/ru" hidden></a>
                         </span>
                     </div>
                 </div>
