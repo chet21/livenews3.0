@@ -13,5 +13,9 @@ class OriginSeeder extends \Illuminate\Database\Seeder
         \App\Models\Origin::updateOrCreate(
             ['id' => 1],
             ['title' => 'LiveNews']);
+        \App\Models\Origin::updateOrCreate(
+            ['id' => 2],
+            ['title' => '24tv.ua'],
+            ['src' => 'https://24tv.ua/']);
     }
 }
