@@ -17,7 +17,7 @@ class ArticlesSave
             $title_ua = array_shift($item['news']);
             $new_article = Article::firstOrCreate(['title_ua' => $title_ua],$item['news']);
 //TODO: створюються лищні звязки тегів до новини
-dump($new_article);
+//dump($new_article);
             //if(!$new_article->exists){
 	      foreach ($item['tags']['ua'] as $tag1) {
                 if(!empty( $tag1['title_ua'] )){

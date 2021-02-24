@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Parser\News;
+namespace App\Parser\news;
 
 
 use App\Models\Tag;
