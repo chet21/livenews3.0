@@ -117,7 +117,6 @@ class NewsParser24Ua extends BaseNewsParser
             $data[$k]['news']['category_id'] = 1;
             $data[$k]['news']['origin_id'] = $this->id_donor;
 
-
         }
 
         return $data;

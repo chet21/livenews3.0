@@ -10,9 +10,9 @@ use App\Parser\News\BaseNewsParser;
 
 class ArticlesSave
 {
-    public static function asParser(BaseNewsParser $news)
+    public static function asParser(array $news)
     {
-        foreach ($news->getData() as $item){
+        foreach ($news as $item){
             $title_ua = array_shift($item['news']);
             $new_article = Article::firstOrCreate(['title_ua' => $title_ua],$item['news']);
 

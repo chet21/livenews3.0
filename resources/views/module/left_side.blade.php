@@ -1,3 +1,4 @@
+@include('module.binance')
 @if($left_news)
     @foreach($left_news as $k => $v)
         @if(is_int($k / 12))

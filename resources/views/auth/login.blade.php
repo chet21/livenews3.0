@@ -1,71 +1,75 @@
 @extends('layouts.app')
 
+
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+                <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+                    @csrf
+                    <span class="login100-form-title p-b-55">
+						{{ __('login.login_name') }}
+					</span>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror input100" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        {{--                <input class="input100" type="text" name="email" placeholder="Email">--}}
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+							<span class="lnr lnr-envelope"></span>
+						</span>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                    <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror input100" name="password" required autocomplete="current-password">
+                        {{--                <input class="input100" type="password" name="pass" placeholder="{{ __('login.password') }}">--}}
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+							<span class="lnr lnr-lock"></span>
+						</span>
+                    </div>
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <div class="contact100-form-checkbox m-l-4">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            {{ __('login.remember_my') }}
+                        </label>
+                    </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                    <div class="container-login100-form-btn p-t-25">
+                        <button type="submit" class="login100-form-btn">
+                            {{ __('login.log_in') }}
+                        </button>
+                    </div>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                    <div class="text-center w-full p-t-42 p-b-22">
+						<span class="txt1">
+							Or login with
+						</span>
+                    </div>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                    <a href="#" class="btn-face m-b-10">
+                        <i class="fa fa-facebook-official"></i>
+                        Facebook
+                    </a>
 
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <a href="#" class="btn-google m-b-10">
+                        <img src="images/icons/icon-google.png" alt="GOOGLE">
+                        Google
+                    </a>
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="text-center w-full p-t-115">
+						<span class="txt1">
+							Not a member?
+						</span>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                        <a class="txt1 bo1 hov1" href="#">
+                            Sign up now
+                        </a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

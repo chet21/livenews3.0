@@ -1,0 +1,9 @@
+@extends('layouts.index')
+
+@section('body')
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+@endsection

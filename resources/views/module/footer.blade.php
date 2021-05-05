@@ -27,7 +27,9 @@
                         <p style="color: #CCCCCC; font-size: 12px"><i class="far fa-envelope-open"></i><span style="margin-left: 15px">support@livenews.com.ua</span></p>
                     </div>
                 </div>
-
+                <div class="row" style="height: 25px; margin-top: 40px">
+                    @include('module.liveinternet.cacl')
+                </div>
             </div>
         </div>
         {{--<div class="col-3">--}}

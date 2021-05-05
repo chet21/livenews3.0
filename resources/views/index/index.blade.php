@@ -1,6 +1,7 @@
 @extends('layouts.index')
 
 @section('body')
+    <div class="d-none d-xl-block d-lg-block d-md-block d-sm-none d-none" style="margin-top: 30px"></div>
     <div class="container" style="margin-top: 30px">
         <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-md-6 col-sm-12 col-xs-12">

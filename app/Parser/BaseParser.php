@@ -24,13 +24,13 @@ abstract class BaseParser
         return $request->get($url);
     }
 
-    public function setProxy(ProxyParser $proxy)
+    protected function setProxy(ProxyParser $proxy)
     {
         $this->proxy = $proxy;
         return $this;
     }
 
-    public function getHtml($url)
+    protected function getHtml($url)
     {
         return $this->request($url)->body();
     }

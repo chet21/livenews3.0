@@ -7,8 +7,13 @@
                     <img height="140" src="/logo.jpg">
                 </div>
             </div>
-            <div class="col-xl-5 col-lg-5 col-md-6 d-none d-xl-block d-lg-block d-md-block">
-                <div style="display: inline-block; width: 500px; height: 100px; margin-top: 45px">
+            <div class="d-xl-none d-lg-none d-md-none d-sm-block d-block" style="margin-top: -25px">
+                <div style="display: inline-block; width: auto; height: 100px; margin-top: -50px; overflow: hidden" >
+                    <img height="150" width="350" src="/logo.jpg">
+                </div>
+            </div>
+            <div class="col-xl-7 offset-2 col-lg-5 col-md-6 d-none d-xl-block d-lg-block d-md-block">
+                <div style="display: inline-block; width: 500px; height: 100px; margin-top: 30px">
                     @include('module.ads.block4')
                 </div>
             </div>

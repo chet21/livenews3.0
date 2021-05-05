@@ -10,6 +10,7 @@ class Article extends Model
     protected $table = 'articles';
     protected $guarded = [];
 
+
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'articles_tags', 'articles_id', 'tags_id');

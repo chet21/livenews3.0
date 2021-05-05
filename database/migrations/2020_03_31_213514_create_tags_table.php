@@ -18,7 +18,6 @@ class CreateTagsTable extends Migration
             $table->string('slug');
             $table->string('title_ua');
             $table->string('title_ru')->nullable();
-            $table->boolean('unuse')->nullable();
         });
     }
 

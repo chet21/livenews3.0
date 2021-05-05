@@ -57,6 +57,11 @@ class NewsController extends Controller
             $article = Article::select('*', 'title_'.App::getLocale().' as title', 'text_'.App::getLocale().' as text')->with(['tags' => function($tags){
                 $tags->whereNull('unuse');
             }, 'comments', 'origin'])->where(['id' => $request[1], 'slug' => $request[0]])->first();
+            $article->increment('views');
+        }
+
+        if(empty($article->title)){
+            return redirect()->back()->withErrors(['message' => __('news.translate_missing')]);
         }
         return view('news.one_article', ['article' => $article]);
     }

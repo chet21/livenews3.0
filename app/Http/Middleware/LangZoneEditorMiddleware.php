@@ -18,11 +18,22 @@ class LangZoneEditorMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(Cookie::has('lang')){
-            App::setLocale(Cookie::get('lang'));
+        $link = explode('/', $request->path());
+
+        if($link[0] === 'ru' || $link[0] === 'ua'){
+            if($link[0] !== Cookie::get('lang')){
+                Cookie::queue('lang', $link[0]);
+                App::setLocale($link[0]);
+            }else{
+                App::setLocale($link[0]);
+            }
         }else{
-            $this->getLocale($request);
-            App::setLocale(\cookie()->queued('lang')->getValue());
+            if(Cookie::has('lang')){
+                App::setLocale(Cookie::get('lang'));
+            }else{
+                $this->getLocale($request);
+                App::setLocale(\cookie()->queued('lang')->getValue());
+            }
         }
 
         return $next($request);
